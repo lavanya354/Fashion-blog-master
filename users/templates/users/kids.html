@@ -1,0 +1,34 @@
+<h1><center>WELCOME TO KIDS PAGE
+
+<DIV align = "left">
+{% if user.is_authenticated %}
+    <h3>Upload an Image</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+{% endif %}
+</DIV>
+
+{% load static %}
+
+{% for image in images %}
+    <img src="{{ image.image_file.url }}" alt="{{ image.description }}" style="width:600px;height:600px;">
+{% endfor %}
+</center></h1>
+
+<a href="https://www.amazon.in/s?k=kids+wear+kids&adgrpid=59197782476&ext_vrnc=hi&hvadid=380039483009&hvdev=c&hvlocphy=9147398&hvnetw=g&hvqmt=b&hvrand=17733179295727598641&hvtargid=kwd-423528039286&hydadcr=23839_1952101&tag=googinhydr1-21&ref=pd_sl_696nu3ihlg_b"> Amazon kids wear </a>
+<br> <a href="https://www.flipkart.com/q/kids-wear"> Flipkart kids wear </a>
+<br> <a href="https://www.myntra.com/kids-wear"> Myntra kids wear </a>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

@@ -1,0 +1,34 @@
+<h1><center>WELCOME TO MEN PAGE
+
+<DIV align = "left">
+{% if user.is_authenticated %}
+    <h3>Upload an Image</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+{% endif %}
+</DIV>
+
+{% load static %}
+
+{% for image in images %}
+    <img src="{{ image.image_file.url }}" alt='{{ image.description }}' style="width:600px;height:600px;">
+{% endfor %}
+</center></h1>
+
+<a href="https://www.amazon.com/Men-Clothing/b?ie=UTF8&node=1040658"> Amazon Mens wear </a>
+<br> <a href="https://www.flipkart.com/q/mens-clothing"> Flipkart Mens wear </a>
+<br> <a href="https://www.myntra.com/men-clothing"> Myntra Mens wear </a>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
